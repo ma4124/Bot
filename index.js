@@ -1,8 +1,10 @@
 'use strict'
 
-const token = EAAC4MUjBRhgBAEbXpaS7p0xJt5lfquTUZANPTyZCg9k6cfJPRGm50xjZBS4974o3xti0x35dcbu2ZB6SM96U35Xj32O2hYa0N8RwJx7CwEJ60c1XtA83sFlRiqED4jLDJFaapJPjGHM958LAybEZBPFYQavnPcdoxKDmrGGbc5QZDZD
+const token = process.env.EAAC4MUjBRhgBAEbXpaS7p0xJt5lfquTUZANPTyZCg9k6cfJPRGm50xjZBS4974o3xti0x35dcbu2ZB6SM96U35Xj32O2hYa0N8RwJx7CwEJ60c1XtA83sFlRiqED4jLDJFaapJPjGHM958LAybEZBPFYQavnPcdoxKDmrGGbc5QZDZD
 
-const vtoken = ma03421632532
+
+const vtoken = process.env.
+ma03421632532
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -24,7 +26,8 @@ app.get('/', function (req, res) {
 
 // for Facebook verification
 app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === ma03421632532) {
+    if (req.query['hub.verify_token'] === 
+ma03421632532) {
         res.send(req.query['hub.challenge'])
     }
     res.send('No sir')
@@ -50,9 +53,7 @@ app.post('/webhook/', function (req, res) {
       }
       if (event.postback) {
         let text = JSON.stringify(event.postback)
-        sendTextMessage(sender, "Postback: "+text.substring(0, 200), EAAC4MUjBRhgBAEbXpaS7p0xJt5lfquTUZANPTyZCg9k6cfJPRGm50xjZBS4974o3xti0x35dcbu2ZB6SM96U35Xj32O2hYa0N8RwJx7CwEJ60c1XtA83sFlRiqED4jLDJFaapJPjGHM958LAybEZBPFYQavnPcdoxKDmrGGbc5QZDZD
-
-)
+        sendTextMessage(sender, "Postback: "+text.substring(0, 200), token)
         continue
       }
     }
@@ -64,9 +65,7 @@ function sendTextMessage(sender, text) {
     let messageData = { text:text }
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:EAAC4MUjBRhgBAEbXpaS7p0xJt5lfquTUZANPTyZCg9k6cfJPRGm50xjZBS4974o3xti0x35dcbu2ZB6SM96U35Xj32O2hYa0N8RwJx7CwEJ60c1XtA83sFlRiqED4jLDJFaapJPjGHM958LAybEZBPFYQavnPcdoxKDmrGGbc5QZDZD
-
-},
+        qs: {access_token:token},
         method: 'POST',
         json: {
             recipient: {id:sender},
@@ -115,9 +114,7 @@ function sendGenericMessage(sender) {
     }
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token:EAAC4MUjBRhgBAEbXpaS7p0xJt5lfquTUZANPTyZCg9k6cfJPRGm50xjZBS4974o3xti0x35dcbu2ZB6SM96U35Xj32O2hYa0N8RwJx7CwEJ60c1XtA83sFlRiqED4jLDJFaapJPjGHM958LAybEZBPFYQavnPcdoxKDmrGGbc5QZDZD
-
-},
+        qs: {access_token:token},
         method: 'POST',
         json: {
             recipient: {id:sender},
