@@ -1,10 +1,7 @@
 'use strict'
 
 const token = process.env.EAAC4MUjBRhgBAEbXpaS7p0xJt5lfquTUZANPTyZCg9k6cfJPRGm50xjZBS4974o3xti0x35dcbu2ZB6SM96U35Xj32O2hYa0N8RwJx7CwEJ60c1XtA83sFlRiqED4jLDJFaapJPjGHM958LAybEZBPFYQavnPcdoxKDmrGGbc5QZDZD
-
-
-const vtoken = process.env.
-ma03421632532
+const vtoken = process.env.ma03421632532
 
 const express = require('express')
 const bodyParser = require('body-parser')
